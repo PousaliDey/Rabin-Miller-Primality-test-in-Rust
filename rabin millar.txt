@@ -1,0 +1,69 @@
+use rand::thread_rng;
+
+fn remainder(a:i32,b:i32){
+    let z=a;
+    while z>=b{
+        let z=a-b;
+    }
+    
+    return z;
+}
+
+fn residue(a:i32,t:i32,n:i32){
+    let x=1;
+    for i in 1..t{
+        let x=remainder(a*x,n);
+    }
+    return x;
+}
+fn primality_test(n:i32){
+    if n%2==0 && n!=2{
+        return false;
+    }
+    else if n==2{
+        return true;
+    }
+    else{
+        let k=n-1;
+        let r=0;
+        while k%2==0{
+        let k=k/2;
+        let r=r+1;
+        }
+        let d=k;
+            let mut rng = rand::thread_rng();
+            let a:i32 = rng.gen_range(1..n-1);
+            let x= residue(a,d,n);
+            if remainder(x,n)==1 || n-1{
+                return true;
+            }
+            else{
+            let y=0;
+            let l=0;
+            while y=0 && l<r-1{
+                let x= remainder(x*x,n);
+                let l=l+1;
+                if remainder(x,n)==n-1{
+                    return true;
+                    let y=1;
+                }
+            if y==0{
+                return false;
+            }     
+            
+        }
+        }
+    
+}
+ fn main(){
+     let n:i32=5;
+     if primality_test(n:i32)==true{
+         println!("{} is prime with high probability",n);
+         }
+         else {
+         println!("{} is composite",n);
+     }
+     
+ }
+ }
+ 
